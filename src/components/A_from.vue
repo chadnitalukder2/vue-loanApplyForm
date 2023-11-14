@@ -81,7 +81,7 @@
             </div>
             <div class="description">
           <label>Description :</label>
-          <textarea rows="3" cols="50" v-model="about"></textarea>
+          <textarea placeholder="description..." rows="3" cols="50" v-model="about"></textarea>
         </div>
           </div>
         </div>
@@ -180,6 +180,7 @@ form {
       color: #333;
     }
     textarea {
+        border-radius: 5px;
       padding: 10px;
       border: none;
       width: 100%;
@@ -187,7 +188,7 @@ form {
       border: 2px solid rgb(147 167 187 / 61%);
       &:focus-visible {
         outline: none;
-        border-bottom: 2px solid #86b7fe;
+        border: 2px solid #86b7fe;
 
         outline: 0;
       }
@@ -203,6 +204,13 @@ button{
     border: 2px solid rgb(147 167 187 / 61%);
     background: #86b7fe;
     color: #333;
+    transition: 0.2s;
+    border-radius: 5px;
+    &:hover{
+        border: 2px solid #86b7fe;
+        background: #3b7cdd;
+        color: #fff;
+    }
 }
 
 </style>
