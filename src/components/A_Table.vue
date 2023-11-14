@@ -1,55 +1,51 @@
 <template>
-    <div class="app">
-        <div class="container ">
-            <h1>Table</h1>
-            <table>
-    <tr>
-      <th>Date</th>
-      <th>FulleName</th>
-      <th>Address </th>
-      <th>Number </th>
-      <th>Date Of Birth</th>
-      <th>Gender </th>
-      <th>Type Of Business  </th>
-      <th>Loan Amount </th>
-      <th>Description </th>
-      <th>..</th>
-    </tr>
-    <tr v-for="(detail,index) in details" :key="index">
-   <td>{{detail.date}}</td>
-   <td>{{detail.fullName}}</td>
-   <td>{{detail.address}}</td>
-   <td>{{detail.number}}</td>
-   <td> {{detail.birth}}</td>
-   <td>{{detail.gender}}</td>
-   <td>{{detail.type}}</td>
-   <td>{{detail.amount}}</td>
-   <td>{{detail.description}}</td>
-      <td>
-        <button @click="DeleteBtn(index)" class="delete">Delete</button>
-        <button class="edit">Edit</button>
-      </td>
-    </tr>
-  
-  </table>
-  <h1>Total amount = {{ grentTotal }}</h1>
-        </div>
+  <div class="app">
+    <div class="container">
+      <h1>Table</h1>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>FulleName</th>
+          <th>Address</th>
+          <th>Number</th>
+          <th>Date Of Birth</th>
+          <th>Gender</th>
+          <th>Type Of Business</th>
+          <th>Loan Amount</th>
+          <th>Description</th>
+          <th>..</th>
+        </tr>
+        <tr v-for="(detail, index) in details" :key="index">
+          <td>{{ detail.date }}</td>
+          <td>{{ detail.fullName }}</td>
+          <td>{{ detail.address }}</td>
+          <td>{{ detail.number }}</td>
+          <td>{{ detail.birth }}</td>
+          <td>{{ detail.gender }}</td>
+          <td>{{ detail.type }}</td>
+          <td>{{ detail.amount }}</td>
+          <td>{{ detail.description }}</td>
+          <td>
+            <button @click="DeleteBtn(index)" class="delete">Delete</button>
+            <button class="edit">Edit</button>
+          </td>
+        </tr>
+      </table>
+      <h1>Total amount = {{ grentTotal }}</h1>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name:"A_table",
-        props:[
-            'details',
-            'grentTotal'
-        ],
-        methods:{
-            DeleteBtn(index){
-                this.$emit("DeleteItem",index)
-            }
-        }
-    }
+export default {
+  name: "A_table",
+  props: ["details", "grentTotal"],
+  methods: {
+    DeleteBtn(index) {
+      this.$emit("DeleteItem", index);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -100,6 +96,4 @@ tr:nth-child(odd) td {
   border-radius: 5px;
   border: 1px solid rgba(147, 167, 187, 0.61);
 }
-
-
 </style>
