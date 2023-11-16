@@ -1,19 +1,19 @@
 <template>
-  <button class="btn" @click="showModal">Modal</button>
-  <Form @submited="submited" />
+  <button class="btn" @click="showModal">Add Detail</button>
+  <Form @submited="submited" v-show="isModalVisible" />
   <Table :details="details" @DeleteItem="DeleteBtn" :grentTotal="grentTotal" />
-<Modal v-show="isModalVisible" @close="closeModl"/>
+  <!-- <Modal v-show="isModalVisible" @close="closeModl"/> -->
 </template>
 
 <script>
-import Modal from './components/A_model.vue'
+//import Modal from './components/A_model.vue'
 import Form from "./components/A_from.vue";
 import Table from "./components/A_Table.vue";
 
 export default {
   name: "App",
   components: {
-    Modal,
+    //Modal,
     Form,
     Table,
   },
@@ -32,6 +32,7 @@ export default {
       this.isModalVisible = false;
     },
     submited(detailsItem) {
+      this.isModalVisible = false;
       if (
         detailsItem.date == "" ||
         detailsItem.fullName == "" ||
@@ -95,12 +96,21 @@ export default {
 
 <style lang="scss">
 .btn{
-    margin: 30px 50px 0px 50px;
-    padding: 8px;
-    font-size: 16px;
-    background: black;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-left: 50%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border: 2px solid rgb(147 167 187 / 61%);
+  background: #86b7fe;
+  color: #333;
+  transition: 0.2s;
+  border-radius: 5px;
+  &:hover {
+    border: 2px solid #86b7fe;
+    background: #3b7cdd;
     color: #fff;
-    border: 2px solid rgb(187, 184, 184);
+  }
 }
 * {
   margin: 0;

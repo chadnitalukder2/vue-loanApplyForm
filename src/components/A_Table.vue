@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <div class="container">
-      <h1>Table</h1>
       <table>
         <tr>
           <th>Date</th>

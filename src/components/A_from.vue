@@ -138,8 +138,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.app{
+  width: 100%;
+  margin: 0 auto;
+  max-width: 80%;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 5px;
+ 
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  
+  background: white;
+}
 form {
-  padding: 50px;
+  padding:0px 50px 10px 50px;
+ 
   .box {
     display: flex;
     justify-content: space-between;
