@@ -1,25 +1,36 @@
 <template>
+  <button class="btn" @click="showModal">Modal</button>
   <Form @submited="submited" />
   <Table :details="details" @DeleteItem="DeleteBtn" :grentTotal="grentTotal" />
+<Modal v-show="isModalVisible" @close="closeModl"/>
 </template>
 
 <script>
+import Modal from './components/A_model.vue'
 import Form from "./components/A_from.vue";
 import Table from "./components/A_Table.vue";
 
 export default {
   name: "App",
   components: {
+    Modal,
     Form,
     Table,
   },
   data() {
     return {
-      details: JSON.parse(localStorage.getItem("details")) || [],
+      details: [],
       grentTotal: 0,
+      isModalVisible: false,
     };
   },
   methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModl() {
+      this.isModalVisible = false;
+    },
     submited(detailsItem) {
       if (
         detailsItem.date == "" ||
@@ -48,11 +59,12 @@ export default {
         amount: detailsItem.amount,
         description: detailsItem.description,
       };
-      console.log(detailsItem, "not found");
-      this.details.push(data);
+       console.log(data , "hoi");
+      this.details?.push(data);
+      
       this.calculateTotal();
       this.saveToLocalStorage();
-      console.log(this.details, "hi");
+    
     },
 
     DeleteBtn(index) {
@@ -62,7 +74,7 @@ export default {
     },
     calculateTotal() {
       let sum = 0;
-      for (let i = 0; i < this.details.length; i++) {
+      for (let i = 0; i < this.details?.length; i++) {
         sum += Number(this.details[i].amount);
       }
       this.grentTotal = sum;
@@ -73,13 +85,23 @@ export default {
     },
   },
   mounted() {
+
     this.details = JSON.parse(localStorage.getItem("details"));
+    
     this.calculateTotal();
   },
 };
 </script>
 
 <style lang="scss">
+.btn{
+    margin: 30px 50px 0px 50px;
+    padding: 8px;
+    font-size: 16px;
+    background: black;
+    color: #fff;
+    border: 2px solid rgb(187, 184, 184);
+}
 * {
   margin: 0;
   padding: 0;

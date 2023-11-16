@@ -33,6 +33,7 @@
       </table>
       <h1>Total amount = {{ grentTotal }}</h1>
     </div>
+  
   </div>
 </template>
 
