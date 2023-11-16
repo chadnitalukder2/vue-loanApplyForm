@@ -60,12 +60,11 @@ export default {
         amount: detailsItem.amount,
         description: detailsItem.description,
       };
-       console.log(data , "hoi");
+      console.log(data, "hoi");
       this.details?.push(data);
-      
+
       this.calculateTotal();
       this.saveToLocalStorage();
-    
     },
 
     DeleteBtn(index) {
@@ -86,16 +85,15 @@ export default {
     },
   },
   mounted() {
-
     this.details = JSON.parse(localStorage.getItem("details"));
-    
+
     this.calculateTotal();
   },
 };
 </script>
 
 <style lang="scss">
-.btn{
+.btn {
   padding: 10px 20px;
   font-size: 18px;
   margin-left: 50%;
